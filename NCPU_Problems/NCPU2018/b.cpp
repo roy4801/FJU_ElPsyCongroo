@@ -32,8 +32,8 @@ void input(const int p)
 	}
 }
 
+// global variables for storing states
 bool first = true, found = false;;
-// int search = 13;
 void dfs(const int p, int sum, const int search)
 {
 	first = true;
@@ -45,14 +45,19 @@ void dfs(const int p, int sum, const int search)
 	{
 		if(bt[p][i])
 		{
+			// Keep recursive searching through until it touchs a leaf;
+			// then, it will jump out this for loop
 			dfs(i, sum, search);
 		}
 	}
+
+	// Only judge the first touching of leaf, ignoring the others
 	if(first)
 	{
 		// printf("sum%d\n ", sum);
 		if(sum == search)
 			found = true;
+
 		first = false;
 	}
 	
