@@ -1,4 +1,4 @@
-## FJU_ElPsuCongroo
+## FJU_ElPsyCongroo
 
 #### 成員介紹
 
