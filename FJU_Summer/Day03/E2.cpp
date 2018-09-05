@@ -24,16 +24,27 @@ struct Worm
 
 	bool operator<(const Worm &other)
 	{
-		return blow < other.blow;
+		return recv < other.recv;
 	}
 };
+
+// bool judge(const Worm worm[], const int i, const int j, const int sum)
+// {
+// 	int w = (j - i + 1);
+
+// 	printf("\nJUDGE %d %d\n", i, j);
+// 	printf("%d\n\n", w);
+
+// 	// if(worm[i].recv * w > sum)
+// 	// 	return true;
+// 	// else
+// 	// 	return false;
+// }
 
 bool judge(const Worm worm[], const int i, const int j, const int sum)
 {
 	int avg = sum / (j - i + 1);
 	bool ret = true;
-
-	DBGP("avg: %d\n", avg);
 
 	for(int a = i; a < j; a++)
 	{
@@ -63,12 +74,16 @@ int main()
 
 	sort(worm, worm + w);
 
+	// for(int i = 0; i < w && (~printf("%d %d\n", worm[i].blow, worm[i].recv)); i++);
+
 	int i = 0, j = 0;
 	int sum  = 0, max = -1;
 
 	while(j < w)
 	{
-		sum += worm[j++].blow;
+		sum += worm[j].blow;
+
+		printf("%d\n", sum);
 
 		if(judge(worm, i, j, sum))
 		{
@@ -77,11 +92,14 @@ int main()
 		}
 		else
 		{
-			sum -= worm[i++].blow;
+			sum -= worm[i].blow;
+			i++;
 		}
+
+		j++;
 	}
 
 	printf("%d\n", max);
 
-	return 0;
+	return 0;	
 }
