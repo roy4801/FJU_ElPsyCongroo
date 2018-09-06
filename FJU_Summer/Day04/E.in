@@ -1,0 +1,18 @@
+80
+
+int pow2(int n)
+{
+	if(n == 0)
+		return 1;
+	else if(n == 1)
+		return 2;
+	else if(n % 2 != 0) // odd
+	{
+		return pow2(n/2) * pow2(n/2) * 2;
+	}
+	else
+	{
+		return pow2(n/2) * pow2(n/2);
+	}
+
+}

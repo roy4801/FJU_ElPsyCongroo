@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// By SunTalk
+
 int main()
 {
 	#ifdef DBG
@@ -32,6 +34,7 @@ int main()
 
 		int banker=21,player=21;
 		int tmp=2,check_b=0,check_p=0;
+		int tmp_b,tmp_p;
 
 		banker=banker-Poke[0]-Poke[1];
 
@@ -54,6 +57,33 @@ int main()
 				player=player-Poke[tmp];
 			}
 			else{
+
+				if(check_p==1){
+					tmp_p=player+10;
+					for(j=tmp;j<tmp+10;j=j+1){
+						
+						if(player>=Poke[j] || Poke[j]==11){
+							if(Poke[j]==11)
+								tmp_p=tmp_p-1;
+							else	
+								tmp_p=tmp_p-Poke[j];
+						}
+						else
+							break;
+					}
+
+					if(tmp_p<player){
+						tmp=j;
+						tmp_p=Poke[tmp];
+						player=tmp_p;
+					}
+					else
+						tmp_p=Poke[tmp];
+
+				}
+				else
+				tmp_p=Poke[tmp];
+
 				break;
 			}
 
@@ -76,24 +106,25 @@ int main()
 				banker=banker-Poke[tmp];
 			}
 
+			if(check_b==1 && banker<0)
+				banker=banker+10;
+
 			tmp++;
 			// printf("%d\n",banker );
 
 		}
 
 		// printf("\n");
-
-		if(player<banker)
+		if((banker-tmp_p+Poke[tmp-1])<0)
+			printf("win\n");
+		else if(player<banker)
 			printf("win\n");
 		else if(player==banker)
 			printf("push\n");
 		else
 			printf("lose\n");
 
-
 	}
-
-
 
 	return 0;
 }

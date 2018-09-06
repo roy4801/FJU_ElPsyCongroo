@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// By roy4801
+
 int64_t p[25] = {1, 2};
 
 int64_t pow2(int64_t n)
