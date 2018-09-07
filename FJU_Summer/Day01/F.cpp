@@ -22,6 +22,7 @@ int main()
 		ans=ans-1;
 		ans=ans*2;
 		printf("%lld",ans );
+		printf(".00"\n);
 	}
 	else if(ans%2 != 0){
 		printf("%lld",ans );
