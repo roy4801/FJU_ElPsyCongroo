@@ -2,6 +2,10 @@
 
 using namespace std;
 
+// By roy4801 賽後
+
+#define M 3000000
+
 int main()
 {
 	#ifdef DBG
@@ -12,19 +16,30 @@ int main()
 
 	scanf("%d %d", &phone, &people);
 
-	int k[people];
-	bool p[phone+1] = {false};
-	int total = 0;
+	bool k[M + 1];
+	bool p[phone+1];
+	int total = 0, tmp;
 
-	for(int i = 0; i < people && scanf("%d", &k[i]) != EOF; i++);
+	memset(k, false, sizeof(k));
+	memset(p, false, sizeof(p));
 
-	for(int i = 0; i < people; i++)
+	for(int i = 0; i < people && scanf("%d", &tmp) != EOF; i++)
 	{
-		for(int a = k[i]; a <= phone; a += k[i])
-		{
-			p[a] = !p[a];
+		// printf("%d\n", tmp);
+		k[tmp] ^= 1; // if calc
+	}
 
-			total += p[a] ? 1 : -1;
+	for(int i = 1; i <= M; i++)
+	{
+		if(k[i])
+		{
+			// Judge multiples
+			for(int j = i; j <= phone; j += i)
+			{
+				p[j] ^= 1;
+
+				total += p[j] ? 1 : -1;
+			}
 		}
 	}
 
