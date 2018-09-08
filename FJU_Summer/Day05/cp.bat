@@ -13,7 +13,7 @@ rem 	gdb %2.exe
 rem 	goto :EX
 rem )
 
-g++ %1.cpp -DDBG -DDBP -o %1.exe 
+g++ %1.cpp -std=c++11 -DDBG -DDBP -o %1.exe 
 
 if %ERRORLEVEL% EQU 0 (
 	%1.exe
