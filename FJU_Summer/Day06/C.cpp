@@ -1,65 +1,48 @@
 #include <bits/stdc++.h>
-
-// By roy4801 AC
-
+ 
 using namespace std;
-
-#define TESTC ""
-#define PROBLEM "C"
-
-int main()
+ 
+int main(int argc, char const *argv[])
 {
-	#ifdef DBG
-	freopen(PROBLEM ".in", "r", stdin);
-	freopen(PROBLEM ".out", "w", stdout);
+
+	#ifdef DEBUG
+	freopen("C.in", "r", stdin);
+	freopen("C.out", "w", stdout);
 	#endif
-	int p;
+ 	
+	int number;
+	scanf("%d",&number);
+	int start[number],end[number];
+	vector <int> big;
+	vector <int> small;
+	int tmp,i,j;
 
-	scanf("%d", &p);
-
-	int brick[p], tmp;
-
-	memset(brick, 0, sizeof(brick));
-
-	for(int i = 0; i < p && scanf("%d", &tmp) != EOF; i++)
-		brick[i] += tmp;
-	for(int i = 0; i < p && scanf("%d", &tmp) != EOF; i++)
-		brick[i] -= tmp;
-
-	int have[100], to[100];
-	int numH = 0, numTo = 0;
-	int move = 0;
-	for(int i = 0; i < p; i++)
-	{
-		if(brick[i] < 0)
-		{
-			move += -brick[i];
-
-			to[numTo++] = i;
-		}
-		else if(brick[i] > 0)
-			have[numH++] = i;
+	for(i=0;i<number;i=i+1){
+		scanf("%d",&start[i]);
+	}
+	for(i=0;i<number;i=i+1){
+		scanf("%d",&end[i]);
 	}
 
-	printf("%d\n", move);
-
-	// for(int i = 0; i < p; i++)
-	// 	printf("%d ", brick[i]);
-	// putchar('\n');
-
-	for(int i = 0; i < numH; i++)
-	{
-		for(int j = 0; j < numTo; j++)
-		{
-			while(brick[have[i]] > 0 && brick[to[j]] < 0)
-			{
-				brick[have[i]]--;
-				brick[to[j]]++;
-				printf("%d %d\n", have[i]+1, to[j]+1);
+	for(i=0;i<number;i=i+1){
+		if(start[i]>end[i]){
+			tmp=start[i]-end[i];
+			for(j=0;j<tmp;j=j+1)
+				big.push_back(i);
+		}
+		else if(end[i]>start[i]){
+			tmp=end[i]-start[i];
+			for(j=0;j<tmp;j=j+1){
+				small.push_back(i);
 			}
 		}
 	}
 
+	tmp=small.size();
+	printf("%d\n",tmp );
+	for(i=0;i<tmp;i=i+1){
+		printf("%d %d\n",big[i]+1,small[i]+1 );
+	}
 
 	return 0;
 }

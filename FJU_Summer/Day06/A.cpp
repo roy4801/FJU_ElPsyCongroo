@@ -1,44 +1,35 @@
 #include <bits/stdc++.h>
-
+ 
 using namespace std;
-
-// by roy4801 AC@(100)
-
-#define TESTC ""
-#define PROBLEM "A"
-
-int factor(const int n)
+ 
+int main(int argc, char const *argv[])
 {
-	int64_t sum = 1;
-	
-	for(int i = 1; i <= n; i++)
-	{
-		sum *= i;
+	#ifdef DEBUG
+	freopen("A.in", "r", stdin);
+	freopen("A.out", "w", stdout);
+	#endif
+	int number;
+	scanf("%d",&number);
+ 
+	int ans=1,tmp,i;
+ 
+	for(i=1;i<=number;i=i+1){
 
-		while(sum % 10 == 0)
-		{
-			sum /= 10;
+		// printf("%d\n", tmp);
+		tmp=i;   
+		ans=ans*tmp;
+		
+		while(ans%10==0)
+			ans=ans/10;
+		while(ans>99){
+			ans=ans%100;
 		}
-
-		sum %= 100;
-
-		// printf("%d\n", sum);
+		// printf("%d: %d\n",i,ans%10 );
+		// printf("\n");
 	}
 
-	return sum;
-}
-
-int main()
-{
-	#ifdef DBG
-	freopen(PROBLEM ".in", "r", stdin);
-	freopen(PROBLEM ".out", "w", stdout);
-	#endif
-	int n;
-
-	scanf("%d", &n);
-
-	printf("%d\n", factor(n) % 10);
-
+	printf("%d\n",ans%10 );
+ 
+ 
 	return 0;
 }
