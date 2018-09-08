@@ -1,27 +1,44 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int f[105] = {0};
+// by roy4801 AC@(100)
 
-void factor()
+#define TESTC ""
+#define PROBLEM "A"
+
+int factor(const int n)
 {
-	int64_t sum = 1, d = 0;
+	int64_t sum = 1;
+	
+	for(int i = 1; i <= n; i++)
+	{
+		sum *= i;
 
-	bool f2 = false, f5 = false;
-	
-	
+		while(sum % 10 == 0)
+		{
+			sum /= 10;
+		}
+
+		sum %= 100;
+
+		// printf("%d\n", sum);
+	}
+
+	return sum;
 }
 
 int main()
 {
-	factor();
+	#ifdef DBG
+	freopen(PROBLEM ".in", "r", stdin);
+	freopen(PROBLEM ".out", "w", stdout);
+	#endif
 	int n;
 
 	scanf("%d", &n);
 
-	for(int i = 1; i <= 100; i++)
-		printf("%d %d\n", i, f[i]);
+	printf("%d\n", factor(n) % 10);
 
 	return 0;
 }

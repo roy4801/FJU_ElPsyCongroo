@@ -41,11 +41,12 @@ struct Queue
 	}
 }que;
 
-void bfs(const int size, void *mm, int root)
+int bfs(const int size, void *mm, int time[], int root)
 {
 	// bug for g++
 	bool (*m)[size+1] = static_cast<bool (*)[size+1]>(mm);
 	bool tra[size+1];
+	int sum = 0;
 
 	memset(tra, false, sizeof(tra));
 
@@ -57,12 +58,16 @@ void bfs(const int size, void *mm, int root)
 		int from = que.front();
 
 		if(!tra[from])
+		{
+			sum += time[from];
 			printf("%c ", 'A' + from-1);
+		}
 		tra[from] = true;
 
 		// putchar('\n');
 		// que.print();
-		
+
+		int maxTime = 0;
 
 		for(int to = 1; to <= size; to++)
 		{
@@ -70,14 +75,19 @@ void bfs(const int size, void *mm, int root)
 			// printf("%d %d\n", from, to);
 			if(!tra[to] && m[from][to])
 			{
+				maxTime = max(maxTime, time[to]);
 				// printf("	can go to %c\n", 'A' + to-1);
 				// printf("IN %d %d\n", from, to);
 				que.push(to);
 			}
 		}
+
+		sum += maxTime;
 		// putchar('\n');
 		que.pop();
 	}
+
+	return sum;
 }
 
 int main()
@@ -110,7 +120,7 @@ int main()
 	}
 	// printf("%s\n", m[4][6] ? "YES" : "NO");
 
-	bfs(n, m, 1);
+	printf("%d\n", bfs(n, m, time, 1));
 
 	return 0;
 }
