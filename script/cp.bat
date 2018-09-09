@@ -13,7 +13,7 @@ if "%1"=="dbg" (
 	goto :EX
 )
 
-g++ %1.cpp -DDBG -DDBP -o %1.exe 
+g++ %1.cpp -DDBG -DDBP -o %1.exe
 
 if %ERRORLEVEL% EQU 0 (
 	%1.exe
