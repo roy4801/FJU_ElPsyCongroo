@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define TESTC ""
+#define PROBLEM ""
+
+int main()
+{
+	#ifdef DBG
+	freopen(PROBLEM ".in", "r", stdin);
+	freopen(PROBLEM ".out", "w", stdout);
+	#endif
+
+	return 0;
+}
