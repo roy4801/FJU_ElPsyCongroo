@@ -1,23 +1,21 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+//by helloworld AC@
 
 #define TESTC ""
-#define PROBLEM "A"
+#define PROBLEM "A_r"
 
-// by helloworld
-
-long long gcd(long long a,long long b)
+long long gcd(long long a , long long b)
 {
 	if (b == 0)
 	{
 		return a;
 	}
 	else
-	{
 		return gcd(b , a%b);
-	}
 }
+
 
 
 
@@ -28,42 +26,24 @@ int main()
 	freopen(PROBLEM ".out", "w", stdout);
 	#endif
 
-	double num;
-	uint64_t mother = 1,child = 0;
-	bool flag = false;
+	double num = 0;
+	long long mother = 1, child = 0;
 
-	while(scanf("%lf",&num) != EOF && num)
+	while(scanf("%lf",&num) && num != 0.0)
 	{
-		printf("%.10f\n", num);
-		child = num;
+		child = (long long)num;
 
-		// printf("%lld\n", child);
-		num -= (double)child;
-		child *= 10;
-		printf("%.10lf\n", num);
-
-
-		while(num - 0.0 > 1e-9)
+		while(num - child)
 		{
-			child += num * 10.0;
-			printf("child: %d\n", child);
-			num *= 10.0;
-			num -= (double)((int64_t)num);
-			printf("%.10lf\n", num);
-			child *= 10;
 			mother *= 10;
+			num *= 10.0;
+			child = (long long)num;
 		}
-		child /= 10;
-		printf("%lld/%lld\n", child,mother);
 
-		while(gcd(mother,child) >= 2)
-		{
-			long long tmp = gcd(mother,child);
-			mother /= tmp;
-			child /= tmp;
-		}
-		printf("%lld/%lld\n", child,mother);
+		long long tmp = gcd(mother,child);
+
+		printf("%lld/%lld\n", child/tmp, mother/tmp);
+		mother = 1;
 	}
-
 	return 0;
 }
