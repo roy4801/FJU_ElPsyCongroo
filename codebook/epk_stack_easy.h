@@ -6,7 +6,7 @@
  */
 #include <cstdio>
 
-#define STACK_SIZE 100
+#define STACK_SIZE 10
 
 int stk[STACK_SIZE];
 int counter = -1;
@@ -20,12 +20,18 @@ void push(const int n)
 {
 	stk[++counter] = n;
 }
-int pop()
+
+void pop()
 {
 	if (counter <= 0)
 		counter = -1;
 	else
 		counter--;
+}
+
+bool empty()
+{
+	return counter == -1;
 }
 
 int size()

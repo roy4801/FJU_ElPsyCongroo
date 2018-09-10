@@ -1,6 +1,6 @@
 ## codebooks
 
-> 最後更新：2018/09/08 23:14:05
+> 最後更新：2018/09/09 23:19:01
 
 ## 檔案命名規則
 
@@ -11,7 +11,7 @@
 #### 基本資料結構
 
 * Stack
-	* [ ] 簡單版
+	* [x] 簡單版
 	* [ ] 模板
 	* [ ] STL用法
 * Queue
@@ -31,3 +31,13 @@
 
 #### 其他資料結構
 
+#### 其他
+
+* 大數
+
+* __int128
+	* [x] C-style print and scan
+	* [ ] C++ style print and scan
+* __uint128
+	* [ ] C-style print and scan
+	* [ ] C++ style print and scan
