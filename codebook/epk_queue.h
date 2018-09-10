@@ -12,7 +12,7 @@
 
 #define N 100
 
-template<typename T>
+template <typename T>
 struct Queue
 {
 	static const int MAX = N;
