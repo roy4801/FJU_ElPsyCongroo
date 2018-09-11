@@ -11,9 +11,9 @@
 template<typename T>
 struct Disjoint
 {
-	static const int MAX = DISJOINT_SIZE+1;
-	int p[MAX];
-	T data[MAX];
+	static const int MAX = DISJOINT_SIZE;
+	int p[MAX+1];
+	T data[MAX+1];
 
 	/*
 	 * Disjoint()
@@ -22,7 +22,9 @@ struct Disjoint
 	Disjoint()
 	{
 		for(int i = 0; i < MAX; i++)
+		{
 			p[i] = i;
+		}
 	}
 
 	/*
@@ -52,10 +54,19 @@ struct Disjoint
 		return find(a) == find(b);
 	}
 
+	/*
+	 * T& operator[](const int idx)
+	 * Description: Return the reference of the idx-th data
+	 */
 	T& operator[](const int idx)
 	{
 		return data[idx];
 	}
+
+	/*
+	 * T operator[](const int idx) const
+	 * Description: Return a copy of the idx-th data
+	 */
 	T operator[](const int idx) const
 	{
 		return data[idx];
