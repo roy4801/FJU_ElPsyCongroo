@@ -1,5 +1,5 @@
 /*
- * Struct disjoint set implmentation
+ * Template disjoint set implmentation
  * Author: roy4801
  * Team: FJU_ElPsyCongroo
  * ver 0.0.1
@@ -7,6 +7,11 @@
 #include <iostream>
 
 #define DISJOINT_SIZE 10
+
+/*
+ * TODO:
+ * 1. Sould make a function return vector<T> that find all group member?
+ */
 
 template<typename T>
 struct Disjoint

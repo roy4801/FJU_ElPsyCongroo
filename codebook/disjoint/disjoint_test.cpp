@@ -44,7 +44,7 @@ int main()
 
 	// Find all group members are the same group
 	int target  = 1;
-	for(int i = 1; i <= Disjoint<int>::MAX; i++)
+	for(int i = 1; i <= Disjoint<int>::MAX; i++) // iterate through the d.data[]
 	{
 		if(d.equ(target, i))
 			printf("%d %d\n", i, d[i]);
