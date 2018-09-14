@@ -30,6 +30,13 @@ struct Queue
 		#endif
 		return d[fr];
 	}
+	T back()
+	{
+		#ifdef DBG
+		assert(fr != ba);
+		#endif
+		return d[ba-1];
+	}
 	void pop()
 	{
 		if(fr >= Queue::MAX)
