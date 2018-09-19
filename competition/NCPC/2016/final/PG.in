@@ -1,0 +1,59 @@
+8
+4
+A AAAAAAA  10
+A AAAAA    8
+A AAAA     7
+A a        1
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+4
+A AAAAAAA  10
+A AAAAA    8
+A AAAA     7
+A a        1
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+3
+A BA 10
+A bcd 5
+B c 4
+ccbcd
+3
+A AAAAAAA 20
+A AA 15
+A a 5
+aaaaaaaa
+3
+A AAAAAAA 20
+A AAA 15
+A a 5
+aaaa
+7
+A BC   10
+B BBC 4
+B BBBBBCCCC 10
+B defBBBCCCC 10
+B ghCCCDEF 10
+B b 1
+C c 1
+bbbbbbbbbbbbbccccccccccccc
+10
+A BC  10
+B Bd  2
+B BBC 4
+B BBBBBCCCC 10
+B BBBBBcccc 10
+B defBBBCCCC 10
+B ghCCCDEF 10
+B b 1
+C c 1
+C f 1
+bbbbbbbbbbbbbccccccccccccc
+7
+A BCD 10
+B BB  6
+C BCD 10
+D DD  6
+B b 1
+C c 1
+D d 1
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcdddddddddddddddddddddddddddddd
+
