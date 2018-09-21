@@ -22,7 +22,7 @@ int main()
 	int N = 14, logN = __lg(N), spI = logN+1;
 	int sp[spI][N] = {0};
 
-	printf("%d %d %d\n", N, logN, spI);
+	// printf("%d %d %d\n", N, logN, spI);
 
 	// Build the Sparse Table
 	for(int i = 0; i < N; i++) // first row (only one in a group)
@@ -47,7 +47,8 @@ int main()
 	{
 		l--, r--;
 
-		int targetIdx = __lg(r - l + 1);
+		int distance = r - l + 1;
+		int targetIdx = l != r ? __lg(distance)-1 : 0;
 
 		printf("%d\n", max(sp[targetIdx][l], sp[targetIdx][r - (1<<targetIdx - 1)]));
 	}
@@ -56,7 +57,7 @@ int main()
 	// {
 	// 	for(int j = 0; j < N - ((1 << i) - 1); j++)
 	// 	{
-	// 		printf("%d ", sp[i][j]);
+	// 		printf("%2d ", sp[i][j]);
 	// 	}
 	// 	putchar('\n');
 	// }
