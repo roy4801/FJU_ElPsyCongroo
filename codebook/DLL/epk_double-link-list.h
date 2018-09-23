@@ -47,9 +47,10 @@ void Insert(const int number){
 		}
 
 	} // end if( head == last )
+
 	else{ // list have >= 2 nodes
 
-		if( number <= ( head -> data ) ){ // number is min in all data
+		if( number < ( head -> data ) ){ // number is min in all data
 
 			temp=head;
 			head=NewNode;
@@ -60,7 +61,7 @@ void Insert(const int number){
 
 		} // end number min
 
-		else if( number >= ( last -> data ) ){ // number is max in all data
+		else if( number > ( last -> data ) ){ // number is max in all data
 
 			temp=last;
 			last=NewNode;
@@ -75,7 +76,7 @@ void Insert(const int number){
 
 			Node *i = head;
 			Node *j = (head->next);
-			while(1){
+			while( j != NULL ){
 				if( ( i -> data ) <= number &&  number <= ( j -> data ) ){
 					i->next = NewNode;
 					j->pre = NewNode;
@@ -144,7 +145,7 @@ void Delete(const int number){ // if want to delete all data for this number , a
 
 } // end void delete
 
-void Print(){
+void Print_H(){ // print from head to last
 
 	Node *i = head;
 	int number;
@@ -166,4 +167,28 @@ void Print(){
 
 	printf("\n");
 
-} // end print
+} // end print_H
+
+void Print_L(){ // print from last to head
+
+	Node *i = last;
+	int number;
+
+	if( i == NULL )
+		printf("NULL");
+
+	while( i != NULL ){
+
+		number = i->data;
+		printf("%d ", number );
+
+		if( i == head )
+			break;
+
+		i = i->pre;
+
+	} // end while
+
+	printf("\n");
+
+} // end print_L

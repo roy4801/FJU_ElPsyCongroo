@@ -19,8 +19,18 @@ int main(int argc, char const *argv[])
 			Insert(number);
 		else if( symbol == 'D' )
 			Delete(number);
-		else if( symbol == 'P' ) // the test data for P the number after P is 0
-			Print();
+		else if( symbol == 'P' ){
+			if( number == 0){
+				printf("Head:");
+				Print_H();
+			}
+			else if( number == 1 ){
+				printf("Last:");
+				Print_L();
+				printf("\n");
+			}
+			
+		}
 
 	}
 
