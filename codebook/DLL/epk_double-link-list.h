@@ -192,3 +192,56 @@ void Print_L(){ // print from last to head
 	printf("\n");
 
 } // end print_L
+
+
+void Mix( Node *list_01_H , Node *list_01_L , Node *list_02_H , Node *list_02_L ){ // mix two list
+
+	Node *i = list_02_H;
+	int number;
+
+	head = list_01_H;
+	last = list_01_L;
+
+	while( i != NULL ){
+		
+		number = i->data;
+
+		Insert(number);
+
+		if( i == list_02_L )
+			break;
+
+		i = i->next;
+
+	} // end while i != NULL
+
+	list_01_H = head;
+	list_01_L = last;
+
+} // end void mix
+
+void Cut( Node *list_01_H , Node *list_01_L , Node *list_02_H , Node *list_02_L ){ // list one - list two
+
+	Node *i = list_02_H;
+	int number;
+
+	head = list_01_H;
+	last = list_01_L;
+
+	while( i != NULL ){
+		
+		number = i->data;
+
+		Delete(number);
+
+		if( i == list_02_L )
+			break;
+
+		i = i->next;
+
+	} // end while i != NULL
+
+	list_01_H = head;
+	list_01_L = last;
+
+} // end void cut
