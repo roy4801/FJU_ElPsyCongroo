@@ -14,6 +14,7 @@
 static int print_i128(__int128 i128)
 {
     char ch128[40], *now = ch128, *head = ch128;
+    int len = 0;
 
     if(i128 < 0)
     {
@@ -26,16 +27,15 @@ static int print_i128(__int128 i128)
         *now++ = i128 % 10 + '0';
         i128 /= 10;
     }
-    *now++ = i128 + '0';
-    *now = '\0';
-    now--;
-    // Reverse
-    while(head <= now)
-    {
-        std::swap(*head++, *now--);
-    }
+    *now = i128 + '0';
 
-    return printf("%s", ch128);
+    // Print
+    while(now >= head)
+    {
+        putchar(*now--);
+    }
+    
+    return 1;
 }
 /*
  * int scan_i128(__int128 *n)
