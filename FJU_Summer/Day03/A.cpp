@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(int argc, char const *argv[])
-{	
+{
 
 	#ifdef DEBUG
 	freopen("A.in","r",stdin);
@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
 				tmp_j=tmp_j+1;
 			}
 			else if(mark=='O'){
-				tmp_o=tmp_o+1;		
+				tmp_o=tmp_o+1;
 			}
 			else{
 				tmp_i=tmp_i+1;
