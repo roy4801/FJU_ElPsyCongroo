@@ -29,6 +29,14 @@
 	* [x] 簡單版
 	* [ ] 模板
 
+### Math
+
+* 質數
+	* [x] 篩法 Sieve of Eratosthenes
+	* [x] isPrime
+
+* [ ] 擴展歐幾里得
+
 ### Sequence
 
 #### RMQ
@@ -41,6 +49,9 @@
 ### String
 
 * LCS
+* [x] hash
+	* C++ built-in
+	* BKDRHash
 
 ### 其他
 
