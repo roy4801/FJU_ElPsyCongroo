@@ -26,7 +26,7 @@ void N_Queen(int k,int Number){
 
 			Tmp[k]=i;
 
-			Eight_Queen(k+1,Number);
+			N_Queen(k+1,Number);
 
 			Row[i]=0;
 			Left[left]=0;
