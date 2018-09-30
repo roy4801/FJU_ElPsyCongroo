@@ -57,7 +57,7 @@ int main()
 			printf("%lld %lld %lld\n",number/4,number/4,number/2 );
 		}
 		else{
-			for( i = 1 ; i < sqrt(number) ; i++ )
+			for( i = 1 ; i <= sqrt(number) ; i++ )
 				if( number % prime[i] == 0 )
 					break;
 
