@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+// by roy4801 (AC)
+
 using namespace std;
 
 #define TESTC ""
@@ -17,8 +19,6 @@ int dist(int x1, int y1, int x2, int y2)
 	int l = abs(x1-x2), r = abs(y1-y2);
 	return l * l + r * r;
 }
-
-priority_queue<int> pq;
 
 int main()
 {
