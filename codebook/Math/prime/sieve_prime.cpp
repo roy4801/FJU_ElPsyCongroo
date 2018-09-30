@@ -12,7 +12,7 @@ int main()
 	buildPrimeTable();
 
 	// Primes below 1000
-	for(int i = 1; i <= 1000; i++)
+	for(int i = 1; i <= 100000; i++)
 	{
 		if(prime[i])
 			printf("%d\n", i);
