@@ -8,7 +8,7 @@
 
 #define DISJOINT_SIZE 10
 
-/*
+/**
  * TODO:
  * 1. Sould make a function return vector<T> that find all group member?
  */
@@ -26,10 +26,8 @@ struct Disjoint
 	 */
 	Disjoint()
 	{
-		for(int i = 0; i < MAX; i++)
-		{
+		for(int i = 1; i <= MAX; i++)
 			p[i] = i;
-		}
 	}
 
 	/*

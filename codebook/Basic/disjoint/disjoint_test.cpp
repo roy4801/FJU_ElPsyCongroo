@@ -10,10 +10,10 @@ using namespace std;
 
 void printWholeSet(const Disjoint<int> &d)
 {
-	for(int i = 0; i < Disjoint<int>::MAX; i++)
-		printf(i != Disjoint<int>::MAX-1 ? "%d " : "%d\n", d.p[i]);
-	for(int i = 0; i < Disjoint<int>::MAX; i++)
-		printf(i != Disjoint<int>::MAX-1 ? "%d " : "%d\n", d.data[i]);
+	for(int i = 1; i <= Disjoint<int>::MAX; i++)
+		printf(i != Disjoint<int>::MAX ? "%d " : "%d\n", d.p[i]);
+	for(int i = 1; i <= Disjoint<int>::MAX; i++)
+		printf(i != Disjoint<int>::MAX ? "%d " : "%d\n", d.data[i]);
 }
 
 int main()
@@ -27,19 +27,23 @@ int main()
 	d[10] = 113;
 	printf("1\n");
 	printWholeSet(d);
+	putchar('\n');
 
 	printf("\n2\n");
 	d.uni(1, 2);
 	d.uni(2, 3);
 	printWholeSet(d);
+	putchar('\n');
 
 	printf("\n3\n");
 	d.uni(7, 2);
 	printWholeSet(d);
+	putchar('\n');
 
 	printf("\n4\n");
 	d.uni(1, 10);
 	printWholeSet(d);
+	putchar('\n');
 
 
 	// Find all group members are the same group
