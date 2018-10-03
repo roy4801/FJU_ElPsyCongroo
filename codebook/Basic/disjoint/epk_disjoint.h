@@ -38,7 +38,7 @@ struct Disjoint
 	 */
 	int find(const int x)
 	{
-		return x==p[x] ? x : find(p[x]);
+		return x==p[x] ? x : (p[x] = find(p[x]));
 	}
 
 	/*

@@ -24,7 +24,7 @@ void init()
  */
 int find(const int x)
 {
-	return x==p[x] ? x : find(p[x]);
+	return x==p[x] ? x : (p[x] = find(p[x]));
 }
 /*
  * void uni(const int a, const int b)
