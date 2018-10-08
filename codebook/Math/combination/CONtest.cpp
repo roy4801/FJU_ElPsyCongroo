@@ -17,11 +17,12 @@ int main(int argc, char const *argv[])
 
 	freopen("table.out","w",stdout);
 
-	Build(4,7);
+	int one,two;
+	scanf("%d %d",&one,&two);
+	Build(one,two);
 
-	for(int i=1;i<Times(17)-1;i++){
+	for(int i=1;i<Times(17)-1;i++)
 		printf("%lld\n",table[i] );
-	}
 
 	return 0;
 }
