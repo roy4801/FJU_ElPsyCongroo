@@ -11,7 +11,7 @@ typedef pair<int, int> P;
 
 // ATTENTION: 0-index
 
-vector<P> w[N]; // (to, weight)
+vector<P> e[N]; // (to, weight) edge
 int d[N];       // 記錄起點到各個點的最短路徑長度
 int parent[N];  // 記錄各個點在最短路徑樹上的父親是誰
 int n;          // n 個點
@@ -38,7 +38,7 @@ void dijkstra(int src)
         if(d[a] != INF) continue;
 
         d[a] = wei;
-        for(auto i : w[a])
+        for(auto i : e[a])
         {
             if(d[i.first] == INF)
             {

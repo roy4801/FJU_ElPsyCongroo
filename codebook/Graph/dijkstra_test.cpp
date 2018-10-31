@@ -16,7 +16,7 @@ int main()
 		for(int i = 0; i < m && cin >> from >> to >> wei; i++)
 		{
 			from--, to--;
-			w[from].emplace_back(to, wei);
+			e[from].emplace_back(to, wei);
 		}
 
 		dijkstra(0);
