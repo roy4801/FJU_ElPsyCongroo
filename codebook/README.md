@@ -37,6 +37,14 @@
 
 * [ ] 擴展歐幾里得
 
+### Graph
+
+* 最短路
+	* [x] dijkstra
+	* [ ] SPFA
+	* [ ] floyd-warshall
+
+
 ### Sequence
 
 #### RMQ
