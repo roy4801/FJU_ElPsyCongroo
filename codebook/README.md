@@ -41,7 +41,7 @@
 
 * 最短路
 	* [x] dijkstra
-	* [ ] SPFA
+	* [x] SPFA
 	* [ ] floyd-warshall
 
 
