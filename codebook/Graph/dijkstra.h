@@ -5,16 +5,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define N 10000
+#define N 500
+#define E 10000
 typedef pair<int, int> P;
 #define INF 2e9
 
 // ATTENTION: 0-index
 
-vector<P> e[N]; // (to, weight) edge
+vector<P> e[E]; // (to, weight) edge
 int d[N];       // 記錄起點到各個點的最短路徑長度
 int parent[N];  // 記錄各個點在最短路徑樹上的父親是誰
-int n;          // n 個點
+int n, m;          // n 個點 m個邊
  
 void dijkstra(int src)
 {
