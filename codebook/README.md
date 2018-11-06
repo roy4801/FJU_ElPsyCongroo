@@ -44,6 +44,9 @@
 	* [x] SPFA
 	* [ ] floyd-warshall
 
+* 最小生成樹 mst
+	* [x] kruskal
+	* [x] prim
 
 ### Sequence
 
