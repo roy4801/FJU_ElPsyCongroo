@@ -85,12 +85,8 @@ void Multiple(){
 	for(int i = 0 ; i < N ; i++ ){
 
 		int tmp = 1;
-		bool check = true;
 		
-		while(1){
-		
-			if( tmp == 0 )
-				break;
+		while( tmp <= weight[i] ){
 			
 			for(int j = 0 ; j < W ; j++)
 				if( j >= weight[i]*tmp )
@@ -98,16 +94,22 @@ void Multiple(){
 			
 			for(int j = 0 ; j < W ; j++ )
 				bag[j][0] = bag[j][1];
-				
-			if(!check)
-				break;
-			else if( limit[i] - tmp*2 + 1 <= tmp*2 ){
-				tmp = limit[i] - tmp*2 + 1;
-				check = false;
-			}
-			else
-				tmp = tmp*2;
+			
+			weight[i] = weight[i]-tmp;
+			tmp = tmp*2;
 				
 		}
+	
+		if( weight[i] > 0 ){
+
+			for(int j = 0 ; j < W ; j++)
+				if( j >= weight[i]*tmp )
+					bag[j][1] = max( bag[j-weight[i]*tmp][0] + value[i]*tmp , bag[j][0] );
+			
+			for(int j = 0 ; j < W ; j++ )
+				bag[j][0] = bag[j][1];
+			
+		}
+
 	}
 }
