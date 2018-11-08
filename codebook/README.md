@@ -43,13 +43,15 @@
 * 最短路
 	* [x] dijkstra
 	* [x] SPFA
-	* [ ] floyd-warshall
+	* [x] floyd-warshall
 
 * 最小生成樹 mst
 	* [x] kruskal
 	* [x] prim
 
 ### Sequence
+
+* [x] LCS
 
 #### RMQ
 
@@ -60,9 +62,9 @@
 
 ### String
 
-* LCSubsting
-* LCSubsequence
-* LIS_onlysize
+* [x] LCS
+* LIS
+	* onlysize
 * [x] hash
 	* C++ built-in
 	* BKDRHash
