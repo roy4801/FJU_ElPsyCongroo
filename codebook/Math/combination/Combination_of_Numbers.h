@@ -5,8 +5,8 @@
  */
 #include <bits/stdc++.h>
 
-long long table[140000];//start from 1 to 2^17-1
-int digit[16];//if digit add,table need add
+long long table[140000]; //start from 1 to 2^17-1
+int digit[16];      //if digit add,table need add
 
 void Build(int one,int two){//one and two can't be 0
 	
@@ -37,13 +37,6 @@ void Build(int one,int two){//one and two can't be 0
 				table[k] = table[k] + one ;
 			j--;
 		}
-
 		k=k+1;
 	}
-
 }
-
-
-
-
-	

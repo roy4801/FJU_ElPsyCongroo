@@ -4,14 +4,16 @@ int sp[spI][N] = {0};
 
 void buildST()
 {
-    // Build the Sparse Table
-    for(int i = 0; i < N; i++) // first row (only one in a group)
+    // first row (only one in a group)
+    for(int i = 0; i < N; i++)
         sp[0][i] = value[i];
-    for(int i = 1; i < spI; i++) // number of elements in a group = 2^i
-    {
-        for(int j = 0; j < N - ((1 << i) - 1); j++) // j < N - (2^i - 1)
+    // number of elements in a group = 2^i
+    for(int i = 1; i < spI; i++)
+    {   // j < N - (2^i - 1)
+        for(int j = 0; j < N - ((1 << i) - 1); j++)
         {
-            // Current row overlapped two upper groups in (i-1) row 
+            // Current row overlapped two upper
+            // groups in (i-1) row 
             sp[i][j] = max(sp[i-1][j], sp[i-1][j+(1 << (i-1))]);
         }
     }
