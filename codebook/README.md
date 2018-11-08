@@ -1,6 +1,6 @@
 ## codebooks
 
-> 最後更新：2018/09/27 23:14:00
+> 最後更新：2018/11/08 19:57:00
 
 ## 檔案命名規則
 
@@ -34,6 +34,7 @@
 * 質數
 	* [x] 篩法 Sieve of Eratosthenes
 	* [x] isPrime
+	* [x] sieve int_max
 
 * [ ] 擴展歐幾里得
 
@@ -59,7 +60,9 @@
 
 ### String
 
-* LCS
+* LCSubsting
+* LCSubsequence
+* LIS_onlysize
 * [x] hash
 	* C++ built-in
 	* BKDRHash
