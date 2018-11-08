@@ -1,15 +1,11 @@
 #include <bits/stdc++.h>
 #define LEN 100
 
-using namespace std;
-
-
 char s1[LEN];
 char s2[LEN];
 int length[LEN + 1][LEN + 1];
 int preve[LEN + 1][LEN + 1]; // 記錄每一格的的結果是從哪一格而來
 int lcs[LEN];
-
 
 void print_LCS_s1(int i, int j)
 {
