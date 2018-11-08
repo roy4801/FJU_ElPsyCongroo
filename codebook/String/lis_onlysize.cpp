@@ -20,8 +20,7 @@ int main()
         else
             *lower_bound(vec.begin(),vec.end(),num) = num;
     }
-        printf("%d\n",vec.size());
+    printf("%d\n",vec.size());
  
     return 0;
 }   
-

@@ -1,7 +1,4 @@
-/**
- * bool isPrime(int n)
- * Description: To check a number that is a prime or not
- */
+// O(sqrt(n))
 bool isPrime(int n)
 {
     for(int i = 2; i <= sqrt(n); i++)

@@ -1,41 +1,66 @@
-void buildSegTree(int segTree[], int val[], int p, const int L, const int R)
+#define MAX_S 10000
+
+ // 【注意】 1-index
+
+int t[4*MAX_S+5];
+int in[MAX_S+5];
+
+#define LEFT(x) ((x)<<1)
+#define RIGHT(x) (((x)<<1)+1)
+
+// Build the segment tree
+// parent, inputL, inputR
+void buildSeg(int p, int inL, int inR)
 {
-	// If it touches leafs
-	if(L == R)
-		segTree[p] = val[L];
-	else
+	if(inL == inR)
 	{
-		int mid = (L+R) / 2, lCh = p*2, rCh = lCh+1;
-
-		buildSegTree(segTree, val, lCh, L, mid);    // Build left subtree [L, mid]
-		buildSegTree(segTree, val, rCh, mid+1, R);  // Build right subtree [mid+1, R]
-
-		segTree[p] = max(segTree[lCh], segTree[rCh]);
+		t[p] = in[inL];
+		return;
 	}
-}
-void createSegTree(int segTree[], const int size, int val[])
-{
-	memset(segTree, -1, 4 * size * sizeof(int)); // clean
-	buildSegTree(segTree, val, 1, 0, size-1);
-}
-int querySegTree(int segTree[], int p, int L, int R, int quL, int quR)
-{
-	int mid = (L+R)/2, ans = INT_MIN;
-
-	if(L >= quL && R <= quR) // L, R are wrapped by quL, qyR
-		return segTree[p];
 	
-	if(quL <= mid) // Left subtree
+	int mid = (inL+inR)/2;
+	buildSeg(LEFT(p), inL, mid);
+	buildSeg(RIGHT(p), mid+1, inR);
+	t[p] = max(t[LEFT(p)], t[RIGHT(p)]);
+}
+
+
+// Modify single point, and maintain the segment tree
+// parent, left, right, idx, val
+void modify(int p, int L, int R, int i, int x)
+{
+	// stop point
+	if(i == L && L == R)
 	{
-		int tmp = querySegTree(segTree, 2*p, L, mid, quL, quR);
-		ans = max(ans, tmp);
+		t[p] = x;
+		return;
 	}
 
-	if(quR > mid) // Right subtree
-	{
-		int tmp = querySegTree(segTree, 2*p+1, mid+1, R, quL, quR);
-		ans = max(ans, tmp);
-	}
+	int mid = (L+R) / 2;
+	if(i <= mid)
+		modify(LEFT(p), L, mid, i, x);
+	else
+		modify(RIGHT(p), mid+1, R, i, x);
+	// update this node
+	t[p] = max(t[LEFT(p)], t[RIGHT(p)]);
+}
 
-	return ans;
+// Query in [quL, quR]
+// parnet, left, right, queryL, queryR
+int query(int p, int L, int R, int quL, int quR)
+{
+	// stop point
+	if(quL <= L && R <= quR)
+	{
+		return t[p];
+	}
+	
+	int mid = (L+R) / 2;
+	if(quR <= mid) // left
+		return query(LEFT(p), L, mid, quL, quR);
+	else if(mid < quL) // right
+		return query(RIGHT(p), mid+1, R, quL, quR);
+	else // middle
+		return max(query(LEFT(p), L, mid, quL, quR),
+			query(RIGHT(p), mid+1, R, quL, quR));
 }
