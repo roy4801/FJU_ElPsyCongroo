@@ -2,7 +2,7 @@
 
 clear
 
-cat template > $1.cpp
+cat template | sed -e "s/PROBLEM \"\"/PROBLEM \"$1\"/g" > $1.cpp
 touch $1.in
 touch $1.out
 
