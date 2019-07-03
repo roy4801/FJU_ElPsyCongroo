@@ -1,4 +1,3 @@
-// Need n
 #define N 10000
 int bit[N+5];
 #define lowbit(x) ((x)&-(x))
