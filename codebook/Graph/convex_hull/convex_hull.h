@@ -1,26 +1,28 @@
 struct point
 {
 	int x, y;
-};
 
-struct kindom
+	int dist(point b)
+	{
+		return (b.x - x) * (b.x - x) + (b.y - y) * (b.y - y);
+	}
+
+	int cross(point p2, point p3)
+	{
+		return (p2.x - x) * (p3.y - y) - (p2.y - y) * (p3.x - x);
+	}
+
+}base;
+
+
+//K[N] 第N個凸包
+//all:全部的點
+//checked:真正凸包上的點
+struct polygon
 {
 	vector<point> all;
 	vector<point> checked;
-	bool bomb = false;
-};
-
-//求兩點距離
-int dist(point a, point b)
-{
-	return (b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y);
-}
-
-//外積
-int cross(point p1, point p2, point p3)
-{
-	return (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x);
-}
+}K[MAXN];
 
 //找出最左下角的點
 bool min_y(point a, point b)
@@ -31,58 +33,56 @@ bool min_y(point a, point b)
 }
 
 //點逆時針排序
-point base;
 bool c_clockwise(point a, point b)
 {
-	int c = cross(base, a, b);
-	return c > 0 || (c == 0 && dist(base, a) < dist(base, b));
+	int c = base.cross(a, b);
+	return c > 0 || (c == 0 && base.dist(a) < base.dist(b));
 }
 
 //畫凸包
-void convex_hull(kindom &kin)
+//base左下角的點
+void convex_hull(int num)
 {
 	//最左下角點開始
-	swap(kin.all[0], *min_element(kin.all.begin(), kin.all.end(), min_y));
-
-	base = kin.all[0];
-	sort(kin.all.begin() + 1, kin.all.end(), c_clockwise);
-	//把原先的點在塞回做結尾判斷
-	kin.all.PB(base);
+	swap(K[num].all[0], *min_element(K[num].all.begin(), K[num].all.end(), min_y));
+	base = K[num].all[0];
+	sort(K[num].all.begin()+1, K[num].all.end(), c_clockwise);
+	K[num].all.PB(base);
 
 	//枚舉，把外積負的人淘汰
 	int m = 0;
-	for (int i = 0; i < kin.all.size(); i++)
+	for (int i = 0; i < K[num].all.size(); i++)
 	{
 		//stack的上面兩個與該點做嘗試
-		while (m >= 2 && cross(kin.checked[m - 2], kin.checked[m - 1], kin.all[i]) <= 0)
+		while (m >= 2 && K[num].checked[m-2].cross(K[num].checked[m - 1], K[num].all[i]) <= 0)
 		{
-			kin.checked.pop_back();
+			K[num].checked.pop_back();
 			m--;
 		}
-		kin.checked.PB(kin.all[i]);
+		K[num].checked.PB(K[num].all[i]);
 		m++;
 	}
 }
 
 //確認點是否在凸包內
-bool isinside(point bullet, kindom kin)
+bool isinside(point pnt, int num)
 {
-	for (int i = 1; i < kin.checked.size(); i++)
+	for (int i = 1; i < K[num].checked.size(); i++)
 	{
-		if (cross(kin.checked[i - 1], kin.checked[i], bullet) < 0)
+		if (K[num].checked[i-1].cross(K[num].checked[i], pnt) < 0)
 			return false;
 	}
 	return true;
 }
 
 //計算面積
-double area(kindom kin)
+double area(int num)
 {
 	double a = 0;
-	for (int i = 1; i < kin.checked.size(); i++)
-		a += (kin.checked[i-1].x * kin.checked[i].y) - (kin.checked[i].x * kin.checked[i-1].y);
+	for (int i = 1; i < K[num].checked.size(); i++)
+		a += (K[num].checked[i-1].x * K[num].checked[i].y) - (K[num].checked[i].x * K[num].checked[i-1].y);
 
-	a += (kin.checked[kin.checked.size()-1].x * kin.checked[0].y) - (kin.checked[0].x * kin.checked[kin.checked.size()-1].y);
+	a += (K[num].checked[K[num].checked.size()-1].x * K[num].checked[0].y) - (K[num].checked[0].x * K[num].checked[K[num].checked.size()-1].y);
 
 	return a/2;
 }

@@ -6,8 +6,7 @@
 int main()
 {
 	int p;
-	kindom K[MAXN];
-	int idx = 0;
+	int idx=0;
 
 	while(scanf("%d",&p) && p >= 0)
 	{
@@ -20,27 +19,22 @@ int main()
 		idx++;
 	}
 
-	//製作凸包
 	for(int i = 0; i < idx; i++)
-		convex_hull(K[i]);
+		convex_hull(i);
 
-	//確認點在凸包內
-	point bullet;
-	double ans = 0;
-	bool flag = 0;
-	while(~scanf("%d %d\n",&bullet.x, &bullet.y))
+	//原點是否在凸包中
+	point pnt;
+	pnt.x = 0, pnt.y = 0;
+	for (int i = 0; i < idx; i++)
 	{
-		for (int i = 0; i < idx; i++)
-		{
-			if (attacked(bullet, K[i]))
-			{
-				cout << "Yes" << '\n';
-				flag = 1;
-				break;
-			}
-		}
+		if(isinside(pnt, i))
+			printf("Yes\n");
+		else
+			printf("No\n");
 	}
-	if(!flag)
-		cout << "No" << '\n';
+
+	//計算1號凸包面積
+	printf("%.lf\n", area(1));
+
 	return 0;
 }
