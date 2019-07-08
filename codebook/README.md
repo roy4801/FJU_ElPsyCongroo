@@ -3,6 +3,7 @@
 ## TODO
 
 * vimrc
+	* [ ] Add to codebook
 * fix toc overlapping
 * fix indent
 
