@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.19)  8 JUL 2019 14:49
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.19)  12 JUL 2019 00:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -645,7 +645,7 @@ LaTeX Font Warning: Font shape `TU/Consolas(1)/bx/n' undefined
 LaTeX Font Warning: Font shape `TU/Consolas(1)/m/it' undefined
 (Font)              using `TU/Consolas(1)/m/n' instead on input line 6.
 
-) (./Basic/cp.sh) (./DS/disjoint_set.cpp) (./DS/int128/int128.h
+) (./Basic/cp.sh) (./Basic/template.cpp) (./DS/disjoint_set.cpp
 
 Package Fancyhdr Warning: \footskip is too small (0.0pt): 
 Make it at least 3.60004pt.
@@ -654,26 +654,28 @@ This may cause the page layout to be inconsistent, however.
 
 [1
 
-]) (./Math/prime/sieve.h) (./Math/prime/isPrime.h) (./Math/prime/genPrime.py) (./Math/combination/Combination_of_Numbers.h) (./Graph/convex_hull/convex_hull.h [2]
+]) (./DS/int128/int128.h) (./Math/prime/sieve.h) (./Math/prime/isPrime.h) (./Math/prime/genPrime.py) (./Math/combination/Combination_of_Numbers.h) [2] (./Graph/convex_hull/convex_hull.h
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKTC(0)/m/it' undefined
 (Font)              using `TU/NotoSansCJKTC(0)/m/n' instead on input line 15.
 
+) (./Graph/ShortestPath/dijkstra.h) [3] (./Graph/ShortestPath/spfa.h
+Underfull \vbox (badness 1715) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+) (./Graph/ShortestPath/floyd_warshall.h) (./Graph/mst/kruskal.h) (./Graph/mst/prim.h [4]) (./DP/bag/common.cpp) (./DP/bag/01.cpp) (./DP/bag/inf.cpp) (./DP/bag/group.cpp) (./DP/bag/multiple.cpp [5]) (./Sequence/RMQ/segmentTree.h) (./String/hash.cpp) (./Ad-hoc/queen.cpp [6])) [7
 
-) (./Graph/ShortestPath/dijkstra.h) (./Graph/ShortestPath/spfa.h [3]) (./Graph/ShortestPath/floyd_warshall.h) (./Graph/mst/kruskal.h) (./Graph/mst/prim.h [4]) (./DP/bag/common.cpp) (./DP/bag/01.cpp) (./DP/bag/inf.cpp) (./DP/bag/group.cpp) (./DP/bag/multiple.cpp) (./Sequence/RMQ/segmentTree.h [5]) (./String/hash.cpp) (./Ad-hoc/queen.cpp)) [6] (/Users/roy4801/Desktop/Program/my code/FJU_ElPsyCongroo/codebook/.texpadtmp/codebook.aux)
+] (/Users/roy4801/Desktop/Program/my code/FJU_ElPsyCongroo/codebook/.texpadtmp/codebook.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17826 strings out of 492916
- 370951 string characters out of 6133345
- 1016466 words of memory out of 5000000
- 21676 multiletter control sequences out of 15000+600000
+ 17860 strings out of 492916
+ 371349 string characters out of 6133345
+ 1057466 words of memory out of 5000000
+ 21707 multiletter control sequences out of 15000+600000
  533813 words of font info for 53 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  40i,12n,67p,337b,1613s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/roy4801/Desktop/Program/my code/FJU_ElPsyCongroo/codebook/.texpadtmp/codebook.pdf (6 pages).
+Output written on /Users/roy4801/Desktop/Program/my code/FJU_ElPsyCongroo/codebook/.texpadtmp/codebook.pdf (7 pages).
