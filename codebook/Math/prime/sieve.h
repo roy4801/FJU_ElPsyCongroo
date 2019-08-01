@@ -8,6 +8,6 @@ void buildPr()
 
 	for(LL i = 2; i <= N; i++)
 		if(pr[i])
-			for(LL a = i*i; a < N; a += i)
+			for(LL a = i*i; a <= N; a += i)
 				pr[a] = false;
 }
