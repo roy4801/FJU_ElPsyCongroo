@@ -1,0 +1,31 @@
+language: gernic
+
+before_install:
+  - mkdir $HOME/.fonts
+  - cp -a $TRAVIS_BUILD_DIR/codebook/fonts/. $HOME/.fonts/
+  - wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKtc-hinted.zip
+  - unzip NotoSansCJKtc-hinted.zip -d $HOME/.fonts/otf/
+  - fc-cache -f -v
+
+install:
+  - source $TRAVIS_BUILD_DIR/codebook/texlive/texlive_install.sh
+
+cache:
+  directories:
+  - "/tmp/texlive"
+  - "$HOME/.texlive"
+
+before_script: cd $TRAVIS_BUILD_DIR/codebook
+script:
+- texliveonfly codebook.tex --compiler=xelatex
+- latexmk -pdfxe codebook.tex
+
+deploy:
+  provider: releases
+  api_key:
+    secure: dBv2J3pyElZiJtvksfgsxEaqkiT9Kmj6nfhTKzuBjGqq0K3Rmi2/K9dt+9ePKdorKLlNqqXlpfX16r0xD9Rxrvp6siT/+9Csf3p9mPDeQgz/ZYqYlolpT4gtDus8oZNiM9zvvEn56elRVTo44Z5qGGMj8AUr2Yz5i15Ao8e5CCPN6RMQdNc7x8mNXBr/biAw64oZkUF9L+E2V3DIxLl1qw4ItPBPaAUTF3HvL1M8pkIB0pZN8q1OX9xeBeLrIuvbBaF1pkyifVWYexuQoM92No2l/kO9nQ7S18XIs+1niVoqjEqprCSiTcAxi6xuJ0tx9OicDV10rksPJGFUmuxvC+yYuNqov9nLXsVj2ypjYqKv0Yd9PculUzPwKo85hKwsWMVF5iVSOmoBXAz5kB09H0ghNPbsoGft/hYIZMG/aCLC1+sXjDlIy9akbvYo1kvurc0W0IvbC/g+6xpTZVZItqXJse/45rvDireybCEUkfZdlKAS4P6sLyPpl51ZVOUdbk+XVr5lWDWGJNN6ISnkxRmi3hnKMK6YI1u4aQT5Rj17fll9nVmKavFAhPk2S9Kaj9p5Kf41raTu1AArCIPOGzJVBYmuFbKYJWm+CUzRs2sy4FKQ0jUVC3MqwEYwKC/lSE7Y4Iu6WzE6x4uhyXiznil2oybDKiFl5nSKoKkgWFY=
+  file: "./codebook.pdf"
+  skip_cleanup: true # TODO: figure out
+  on:
+    repo: roy4801/FJU_ElPsyCongroo
+    branch: master
