@@ -8,12 +8,8 @@ before_install:
   - fc-cache -f -v
 
 install:
-<<<<<<< HEAD
   - cd $TRAVIS_BUILD_DIR/codebook/texlive/
   - source ./install.sh
-=======
-  - printf "I\n" | sudo bash $TRAVIS_BUILD_DIR/codebook/texlive/texlive_install.sh
->>>>>>> d1839a9... Testing for travis
 
 cache:
   directories:
