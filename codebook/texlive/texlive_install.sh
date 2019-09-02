@@ -20,6 +20,8 @@ if ! command -v texlua > /dev/null; then
   cd ..
 fi
 
+export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
+
 # Just including xelatex so the cache check above works
 tlmgr install xetex
 
