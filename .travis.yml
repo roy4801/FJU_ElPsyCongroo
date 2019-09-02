@@ -10,7 +10,7 @@ before_install:
 
 install:
   - cd $TRAVIS_BUILD_DIR/codebook/texlive/
-  - printf "I\n" | bash ./texlive_install.sh
+  - printf "I\n" | sudo bash ./texlive_install.sh
 
 cache:
   directories:
