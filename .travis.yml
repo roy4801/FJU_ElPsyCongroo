@@ -16,11 +16,11 @@ cache:
   directories:
   - "/tmp/texlive"
   - "$HOME/.texlive"
+  - "/usr/local/texlive"
 
 before_script: cd $TRAVIS_BUILD_DIR/codebook
 script:
-- texliveonfly codebook.tex --compiler=xelatex
-- latexmk -pdfxe codebook.tex
+- bash ./build.sh
 
 deploy:
   provider: releases
