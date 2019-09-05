@@ -31,3 +31,4 @@ deploy:
   on:
     repo: roy4801/FJU_ElPsyCongroo
     branch: master
+    tags: true
