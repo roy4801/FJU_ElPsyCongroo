@@ -28,3 +28,27 @@ void uni(int a, int b)
         siz[a] = 0;
     }
 }
+
+struct disjoin{
+
+    int group[MAXN+5];
+    void init(){
+        for(int i = 0 ; i < MAXN+5 ; i++ )
+            group[i] = i;
+    }
+
+    int find(int k){
+        return group[k]==k ? k:(group[k]=find(group[k]));
+    }
+
+    void uni(int a,int b){
+        group[find(a)] = group[find(b)];
+    }
+
+    bool is_group(int a, int b){
+        if( find(a) == find(b) )
+            return true;
+        return false;
+    }
+
+};
