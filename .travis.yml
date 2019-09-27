@@ -1,26 +1,14 @@
 language: gernic
+sudo: required
+services:
+  - docker
 
 before_install:
-  - echo $TRAVIS_BUILD_DIR
-  - mkdir $HOME/.fonts
-  - cp -a $TRAVIS_BUILD_DIR/codebook/fonts/. $HOME/.fonts/
-  - wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKtc-hinted.zip
-  - unzip NotoSansCJKtc-hinted.zip -d $HOME/.fonts/otf/
-  - fc-cache -f -v
-
-install:
-  - cd $TRAVIS_BUILD_DIR/codebook/texlive/
-  - printf "I\n" | sudo bash ./texlive_install.sh
-
-cache:
-  directories:
-  - "/tmp/texlive"
-  - "$HOME/.texlive"
-  - "/usr/local/texlive"
+  - docker pull roy4801/codebook_build:latest
 
 before_script: cd $TRAVIS_BUILD_DIR/codebook
 script:
-- bash ./build.sh
+- docker run -v $(pwd):/tex -w /tex bash ./build.sh
 
 deploy:
   provider: releases
