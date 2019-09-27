@@ -8,7 +8,7 @@ before_install:
 
 before_script: cd $TRAVIS_BUILD_DIR/codebook
 script:
-- docker run -v $(pwd):/tex -w /tex bash ./build.sh
+- docker run -v $(pwd):/tex -w /tex roy4801/codebook_build bash ./build.sh
 
 deploy:
   provider: releases
