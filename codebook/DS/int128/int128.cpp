@@ -4,8 +4,8 @@
  * Team: FJU_ElPsyCongroo
  * ver 0.0.1
  */
+#include <bits/stdc++.h>
 #include "int128.h"
-
 using namespace std;
 
 /*
@@ -18,10 +18,10 @@ using namespace std;
 // TODO: Maybe turn __int128 into a macro like int128_t?
 
 int main() {
-    #ifdef DBG
+    // #ifdef DBG
     freopen("./int128.in", "r", stdin);
     freopen("./int128.out", "w", stdout);
-    #endif
+    // #endif
     __int128 a, b = 0;
 
     while(scan_i128(&a) != EOF && scan_i128(&b) != EOF)

@@ -1,8 +1,6 @@
 // 多重背包
-int limit[N];          //物品上限
-
-void Multiple(){
-
+int limit[N]; // 物品上限
+void Multiple() {
   for(int i = 0 ; i < N ; i++ ){
     int tmp = 1;
     while( tmp <= weight[i] ){

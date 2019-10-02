@@ -1,6 +1,6 @@
 // 分組背包
-int group;             //有幾組
-int how_many;          //一組幾個
+int group;    // 有幾組
+int how_many; // 一組幾個
 int WEIGHT,VALUE;
 
 void Grouping(){

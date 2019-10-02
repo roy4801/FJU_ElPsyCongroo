@@ -33,5 +33,3 @@ void bfs(int s)
 		}
 	}
 }
-
-
