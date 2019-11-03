@@ -1,27 +1,23 @@
+// build O(nlogn) query O(logn)
 #define N 10000
-int bit[N+5];
-#define lowbit(x) ((x)&-(x))
-void add(int x, int v)
+int BIT[N+5];
+int n, arr[N+5];
+#define lowbit(x) ((x)&(-x))
+inline void update(int x, int v)
 {
-	while(x <= n)
-	{
-		bit[x] += v;
-		x += lowbit(x);
-	}
+  for(; x <= N; x += lowbit(x))
+    BIT[x] += v;
 }
-
-int sum(int ri)
+inline void build()
 {
-	int sum = 0;
-	while(ri > 0)
-	{
-		sum += bit[ri];
-		ri -= lowbit(ri);
-	}
-	return sum;
+  memset(BIT, 0, sizeof(BIT));
+  for(int i = 1; i < n; i++)
+    update(i, arr[i]);
 }
-
-int query(int left, int right)
-{
-	return sum(right) - sum(left-1);
+inline int query(int x)
+{// return [1, x]
+  int ans = 0;
+  for(; x; x -= lowbit(x))
+    ans += BIT[x];
+  return ans;
 }

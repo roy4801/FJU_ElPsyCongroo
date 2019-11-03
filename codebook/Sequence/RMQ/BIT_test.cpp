@@ -2,6 +2,10 @@
 using namespace std;
 int n;
 #include "BIT.h"
+int prefix_query(int l, int r)
+{
+    return query(r)-query(l-1);
+}
 int main()
 {
 	freopen("BIT_test.in", "r", stdin);
@@ -12,10 +16,10 @@ int main()
 	while(cases-- && cin >> n)
 	{
 		for(int i = 1; i <= n && cin >> tmp; i++)
-			add(i, tmp);
+			update(i, tmp);
 
 		while(cin >> a >> b && (a || b))
-			cout << query(a, b) << '\n';
+			cout << prefix_query(a, b) << '\n';
 	}
 	return 0;
 }
