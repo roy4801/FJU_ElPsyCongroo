@@ -4,3 +4,8 @@
 *.aux
 *.log
 *.toc
+
+*.fls
+*.xdv
+*.pdf
+*.fdb_latexmk
