@@ -16,7 +16,7 @@ if "%1"=="dbg" (
 g++ %1.cpp -DDBG -DDBP -o %1.exe
 
 if %ERRORLEVEL% EQU 0 (
-	%1.exe
+	%1.exe < %1.in > %1.out
 )
 
 :EX
