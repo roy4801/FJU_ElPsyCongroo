@@ -1,5 +1,4 @@
 #!/bin/bash
-
 clear
 g++ $1.cpp -DDBG -o $1
 if [[ "$?"=="0" ]]; then
@@ -7,5 +6,3 @@ if [[ "$?"=="0" ]]; then
 	./$1 < $1.in > $1$2.out
 	echo END
 fi
-
-	
