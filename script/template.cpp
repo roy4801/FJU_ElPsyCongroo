@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PROB "{1}"
-#define TESTC "{2}"
-
 #define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 typedef long long int LL;
 typedef unsigned long long ULL;
@@ -18,13 +15,9 @@ typedef pair<LL, LL> PLL;
 #define PPB pop_back
 #define PF push_front
 #define PPF pop_front
+#define MAXN 
 
 int main()
 {
-	#ifdef DBG
-	freopen(PROB TESTC ".in", "r", stdin);
-	freopen(PROB ".out", "w", stdout);
-	#endif
 	
-	return 0;
 }
