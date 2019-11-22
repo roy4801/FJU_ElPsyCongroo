@@ -16,6 +16,7 @@ typedef pair<LL, LL> PLL;
 #define PF push_front
 #define PPF pop_front
 #define MAXN 
+#define N 
 
 int main()
 {
