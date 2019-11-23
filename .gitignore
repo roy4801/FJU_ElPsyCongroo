@@ -9,3 +9,5 @@
 *.xdv
 *.pdf
 *.fdb_latexmk
+
+.cquery_cache
