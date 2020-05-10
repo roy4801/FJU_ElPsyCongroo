@@ -1,5 +1,7 @@
 ## FJU_ElPsyCongroo
 
+* 20200510 活動休止
+
 #### 成員介紹
 
 * SunTalk
