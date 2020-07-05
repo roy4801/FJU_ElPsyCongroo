@@ -1,6 +1,6 @@
 syntax on
 color torte
-set guifont=Consolas:h11  # Source Code
+set guifont=Consolas:h11  " Source Code
 set nu ts=4 sw=4 sts=4 et ai si cin hls ru t_Co=256
 set mouse=a bs=2 ci nocp ar fencs=utf-8
 set sm mat=0
